@@ -1,30 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Phonebook.hpp                                      :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jomaia <jomaia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/05/13 17:40:00 by jomaia            #+#    #+#             */
-/*   Updated: 2026/05/14 10:00:40 by jomaia           ###   ########.fr       */
+/*   Created: 2026/05/14 09:55:42 by jomaia            #+#    #+#             */
+/*   Updated: 2026/05/14 10:02:49 by jomaia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
-#include <iomanip>
-#include <string>
-#include <cstdlib>
-#include "Contact.hpp"
+#include "Phonebook.hpp"
 
-class Phonebook
+int main()
 {
-	private:
-		Contact _contacts[8];
-		int _last_contact;
-	public:
-		Phonebook();
-		~Phonebook();
-		void Add();
-		void Search();
-		void set_last();
-};
+	Phonebook pb;
+
+	while (1)
+	{
+		std::string input;
+		std::cout << "Command(ADD, SEARCH or EXIT): ";
+		std::getline(std::cin, input);
+		if (strcmp(input.c_str(), "ADD") == 0)
+			pb.Add();
+		else
+			exit(0);
+	}
+}

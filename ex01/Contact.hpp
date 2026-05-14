@@ -6,11 +6,14 @@
 /*   By: jomaia <jomaia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/13 16:14:50 by jomaia            #+#    #+#             */
-/*   Updated: 2026/05/13 17:33:49 by jomaia           ###   ########.fr       */
+/*   Updated: 2026/05/14 10:01:04 by jomaia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <string>
+#include <cstdlib>
 #include <iostream>
+#include <cstring>
 
 class Contact
 {
@@ -31,6 +34,6 @@ class Contact
 		
 		void set_first(std::string first);
 		void set_last(std::string last);
-		void get_number(std::string number);
-		void get_secret(std::string secret);
+		void set_number(std::string number);
+		void set_secret(std::string secret);
 };
