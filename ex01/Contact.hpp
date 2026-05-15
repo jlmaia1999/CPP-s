@@ -21,8 +21,8 @@ class Contact
 		std::string _first;
 		std::string _last;
 		std::string _number;
+		std::string _nickname;
 		std::string _secret;
-		
 	public:
 		Contact();
 		~Contact();
@@ -30,10 +30,12 @@ class Contact
 		std::string get_first();
 		std::string get_last();
 		std::string get_number();
+		std::string get_nickname();
 		std::string get_secret();
 		
 		void set_first(std::string first);
 		void set_last(std::string last);
 		void set_number(std::string number);
+		void set_nick(std::string nick);
 		void set_secret(std::string secret);
 };

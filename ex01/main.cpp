@@ -16,14 +16,17 @@ int main()
 {
 	Phonebook pb;
 
+	pb.set_last();
 	while (1)
 	{
 		std::string input;
 		std::cout << "Command(ADD, SEARCH or EXIT): ";
 		std::getline(std::cin, input);
-		if (strcmp(input.c_str(), "ADD") == 0)
+		if (input == "ADD")
 			pb.Add();
-		else
+		else if (input == "SEARCH")
+			pb.Search();
+		else if (input == "EXIT")
 			exit(0);
 	}
 }

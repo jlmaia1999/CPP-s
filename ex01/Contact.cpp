@@ -25,10 +25,17 @@ std::string Contact::get_last()
 {
 	return _last;
 }
+
 std::string Contact::get_number()
 {
 	return _number;
 }
+
+std::string Contact::get_nickname()
+{
+	return _nickname;
+}
+
 std::string Contact::get_secret()
 {
 	return _secret;
@@ -42,6 +49,11 @@ void Contact::set_first(std::string first)
 void Contact::set_last(std::string last)
 {
 	this->_last = last;
+}
+
+void Contact::set_nick(std::string nick)
+{
+	this->_nickname = nick;
 }
 
 void Contact::set_number(std::string number)
