@@ -3,22 +3,19 @@ CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 
 SRCS = main.cpp Contact.cpp Phonebook.cpp
-OBJS = $(SRCS:.cpp=.o)
 
 all: $(NAME)
 
-$(NAME): $(OBJS)
-	$(CXX) $(CXXFLAGS) -o $(NAME) $(OBJS)
-
-%.o: %.cpp
-	$(CXX) $(CXXFLAGS) -c $< -o $@
-
-clean:
-	rm -rf $(OBJS)
+$(NAME):
+	$(CXX) $(CXXFLAGS) -o $(NAME) $(SRCS)
+	@echo created
+clean:	
 
 fclean: clean
-	rm -rf $(NAME)
+	rm -f $(NAME)
+	@echo cleaned
 
-re: fclean all
+re: fclean
+	@$(MAKE) $(NAME)
 
 .PHONY: all clean fclean re
