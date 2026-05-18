@@ -6,14 +6,17 @@
 /*   By: jomaia <jomaia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/13 16:14:50 by jomaia            #+#    #+#             */
-/*   Updated: 2026/05/14 10:01:04 by jomaia           ###   ########.fr       */
+/*   Updated: 2026/05/18 14:39:01 by jomaia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string>
-#include <cstdlib>
-#include <iostream>
-#include <cstring>
+#ifndef CONTACT_HPP
+# define CONTACT_HPP
+
+# include <string>
+# include <cstdlib>
+# include <iostream>
+# include <cstring>
 
 class Contact
 {
@@ -39,3 +42,5 @@ class Contact
 		void set_nick(std::string nick);
 		void set_secret(std::string secret);
 };
+
+#endif

@@ -15,7 +15,6 @@ fclean: clean
 	rm -f $(NAME)
 	@echo cleaned
 
-re: fclean
-	@$(MAKE) $(NAME)
+re: fclean all
 
 .PHONY: all clean fclean re

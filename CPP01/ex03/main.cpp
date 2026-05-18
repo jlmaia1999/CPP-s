@@ -5,28 +5,29 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: jomaia <jomaia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/05/14 09:55:42 by jomaia            #+#    #+#             */
-/*   Updated: 2026/05/14 10:02:49 by jomaia           ###   ########.fr       */
+/*   Created: 2026/05/18 17:49:33 by jomaia            #+#    #+#             */
+/*   Updated: 2026/05/18 17:50:39 by jomaia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Phonebook.hpp"
+#include "header.hpp"
 
 int main()
 {
-	Phonebook pb;
-
-	pb.set_last();
-	while (1)
 	{
-		std::string input;
-		std::cout << "Command(ADD, SEARCH or EXIT): ";
-		std::getline(std::cin, input);
-		if (input == "ADD")
-			pb.Add();
-		else if (input == "SEARCH")
-			pb.Search();
-		else if (input == "EXIT")
-			exit(0);
+		Weapon club = Weapon("crude spiked club");
+		HumanA bob("Bob", club);
+		bob.attack();
+		club.setType("some other type of club");
+		bob.attack();
 	}
+	{
+		Weapon club = Weapon("crude spiked club");
+		HumanB jim("Jim");
+		jim.setWeapon(club);
+		jim.attack();
+		club.setType("some other type of club");
+		jim.attack();
+	}
+	return 0;
 }

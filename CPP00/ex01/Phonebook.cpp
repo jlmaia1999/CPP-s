@@ -6,7 +6,7 @@
 /*   By: jomaia <jomaia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/13 17:49:21 by jomaia            #+#    #+#             */
-/*   Updated: 2026/05/14 09:16:37 by jomaia           ###   ########.fr       */
+/*   Updated: 2026/05/18 14:29:53 by jomaia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,17 @@ void Phonebook::set_last()
 	this->_last_contact = 0;
 }
 
+std::string checkeof()
+{
+	std::string input;
+
+	std::getline(std::cin, input);
+	if (std::cin.eof())
+		exit(0);
+	else
+		return (input);
+}
+
 void Phonebook::Add()
 {
 	std::string input;
@@ -29,23 +40,23 @@ void Phonebook::Add()
 	check = 0;
 	do {
 		std::cout << "First Name: ";
-		std::getline(std::cin, input);
+		input = checkeof();
 	} while (!std::cin.eof() && input.size() == 0);
 	_contacts[_last_contact % 8].set_first(input);
 	do {
 		std::cout << "Last Name: ";
-		std::getline(std::cin, input);
+		input = checkeof();
 	} while (!std::cin.eof() && input.size() == 0);
 	_contacts[_last_contact % 8].set_last(input);
 	do {
 		std::cout << "Nickname: ";
-		std::getline(std::cin, input);
+		input = checkeof();
 	} while (!std::cin.eof() && input.size() == 0);
 	_contacts[_last_contact % 8].set_nick(input);
 	do {
 		check = 0;
 		std::cout << "Number: ";
-		std::getline(std::cin, input);
+		input = checkeof();
 		if (input.length() != 9)
 			check = 1;
 		for (int i = 0; i < (int)input.length(); i++)
@@ -55,7 +66,7 @@ void Phonebook::Add()
 	_contacts[_last_contact % 8].set_number(input);
 	do {
 		std::cout << "Darkest Secret: ";
-		std::getline(std::cin, input);
+		input = checkeof();
 	} while (!std::cin.eof() && input.size() == 0);
 	_contacts[_last_contact % 8].set_secret(input);
 	this->_last_contact++;
@@ -99,7 +110,7 @@ void Phonebook::Search()
 	do {
 		check = 0;
 		std::cout << "Choose contact: ";
-		std::getline(std::cin, input);
+		input = checkeof();
 		for (int j = 0; j < (int)input.length(); j++)
 			if(std::isalpha(input[j]))
 				check = 1;
