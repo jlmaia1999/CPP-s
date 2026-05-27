@@ -1,8 +1,8 @@
-NAME = Harl
+NAME = Fixed
 CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 
-SRCS = main.cpp Harl.cpp
+SRCS = main.cpp Fixed.cpp
 
 all: $(NAME)
 
