@@ -6,7 +6,7 @@
 /*   By: jomaia <jomaia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/27 12:13:19 by jomaia            #+#    #+#             */
-/*   Updated: 2026/06/11 11:48:41 by jomaia           ###   ########.fr       */
+/*   Updated: 2026/06/11 13:52:28 by jomaia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,4 +72,108 @@ std::ostream &operator<<(std::ostream &out, const Fixed &c)
 {
 	out << c.toFloat();
 	return out;
+}
+
+Fixed Fixed::operator*(const Fixed &other) const
+{
+	return (Fixed(toFloat() * other.toFloat()));
+}
+
+Fixed Fixed::operator+(const Fixed &other) const
+{
+	return (Fixed(toFloat() + other.toFloat()));
+}
+
+Fixed Fixed::operator-(const Fixed &other) const
+{
+	return (Fixed(toFloat() - other.toFloat()));
+}
+
+Fixed Fixed::operator/(const Fixed &other) const
+{
+	return (Fixed(toFloat() / other.toFloat()));
+}
+
+Fixed Fixed::operator++(void)
+{
+	++_n;
+	return *this;
+}
+
+Fixed Fixed::operator++(int)
+{
+	Fixed prev(*this);
+	_n++;
+	return prev;
+}
+
+Fixed Fixed::operator--(void)
+{
+	--_n;
+	return *this;
+}
+
+Fixed Fixed::operator--(int)
+{
+	Fixed prev(*this);
+	_n--;
+	return prev;
+}
+
+bool Fixed::operator<(const Fixed &other) const
+{
+	return (_n < other._n);
+}
+
+bool Fixed::operator>(const Fixed &other) const
+{
+	return (_n > other._n);
+}
+
+bool Fixed::operator<=(const Fixed &other) const
+{
+	return (_n <= other._n);
+}
+
+bool Fixed::operator>=(const Fixed &other) const
+{
+	return (_n > other._n);
+}
+
+bool Fixed::operator==(const Fixed &other) const
+{
+	return (_n == other._n);
+}
+
+bool Fixed::operator!=(const Fixed &other) const
+{
+	return (_n != other._n);
+}
+
+const Fixed& Fixed::min(const Fixed &n1, const Fixed &n2)
+{
+	if (n1.toFloat() < n2.toFloat())
+		return n1;
+	return n2;
+}
+
+Fixed& Fixed::min(Fixed &n1, Fixed& n2)
+{
+	if (n1.toFloat() < n2.toFloat())
+		return n1;
+	return n2;
+}
+
+const Fixed& Fixed::max(const Fixed &n1, const Fixed &n2)
+{
+	if (n1.toFloat() > n2.toFloat())
+		return n1;
+	return n2;
+}
+
+Fixed& Fixed::max(Fixed &n1, Fixed& n2)
+{
+	if (n1.toFloat() > n2.toFloat())
+		return n1;
+	return n2;
 }
