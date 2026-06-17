@@ -6,7 +6,7 @@
 /*   By: jomaia <jomaia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/13 17:49:21 by jomaia            #+#    #+#             */
-/*   Updated: 2026/05/18 14:29:53 by jomaia           ###   ########.fr       */
+/*   Updated: 2026/06/15 16:34:04 by jomaia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,14 +80,14 @@ void Phonebook::Search()
 
 	check = 0;
 	i = 1;
+	if (this->_last_contact == 0)
+	{
+		std::cout << "Phonebook is empty." << std::endl;
+		return ;
+	}
 	std::cout << "     Index|First Name| Last Name|  Nickname|\n";
 	while (i < 9 && i <= _last_contact)
 	{
-		if (this->_last_contact == 0)
-		{
-			std::cout << "Phonebook is empty." << std::endl;
-			return ;
-		}
 		std::cout << "         "<< i << "|";
 		if (_contacts[i - 1].get_first().length() >= 10)
 			std::cout << _contacts[i - 1].get_first().substr(0,9) << ".";

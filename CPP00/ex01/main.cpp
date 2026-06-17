@@ -6,7 +6,7 @@
 /*   By: jomaia <jomaia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/14 09:55:42 by jomaia            #+#    #+#             */
-/*   Updated: 2026/05/18 14:34:46 by jomaia           ###   ########.fr       */
+/*   Updated: 2026/06/15 16:32:19 by jomaia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ int main()
 		else if (input == "SEARCH")
 			pb.Search();
 		else if (input == "EXIT")
-			exit(0);
+			break ;
 	}
+	return (0);
 }
