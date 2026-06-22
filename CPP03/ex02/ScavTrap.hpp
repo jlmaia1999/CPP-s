@@ -1,39 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Fixed.hpp                                          :+:      :+:    :+:   */
+/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jomaia <jomaia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/05/27 12:09:31 by jomaia            #+#    #+#             */
-/*   Updated: 2026/06/22 14:09:07 by jomaia           ###   ########.fr       */
+/*   Created: 2026/06/22 13:45:01 by jomaia            #+#    #+#             */
+/*   Updated: 2026/06/22 14:45:40 by jomaia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FIXED_HPP
-# define FIXED_HPP
+#ifndef SCAVTRAP_HPP
+# define SCAVTRAP_HPP
 
-#include <iostream>
-#include <math.h>
+#include "ClapTrap.hpp"
 
-class Fixed
+class ScavTrap : public ClapTrap
 {
 	private:
-		int _n;
-		static const int _bits = 8;
+		bool	_mode;
 	public:
-		Fixed();
-		Fixed(const int i);
-		Fixed(const float f);
-		Fixed(const Fixed&copy);
-		Fixed &operator= (const Fixed &copy);
-		~Fixed();
-		int getRawBits()const;
-		void setRawBits(int const n);
-		float toFloat()const;
-		int toInt()const;
-};
+		ScavTrap();
+		ScavTrap(const std::string name);
+		ScavTrap(const ScavTrap&copy);
+		ScavTrap &operator= (const ScavTrap &copy);
+		~ScavTrap();
 
-std::ostream &operator<<(std::ostream &out, const Fixed &c);
+		void guardGate();
+		void attack(const std::string name);
+};
 
 #endif

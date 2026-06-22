@@ -1,39 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Fixed.hpp                                          :+:      :+:    :+:   */
+/*   ClapTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jomaia <jomaia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/05/27 12:09:31 by jomaia            #+#    #+#             */
-/*   Updated: 2026/06/22 14:09:07 by jomaia           ###   ########.fr       */
+/*   Created: 2026/06/18 15:56:55 by jomaia            #+#    #+#             */
+/*   Updated: 2026/06/22 14:16:09 by jomaia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FIXED_HPP
-# define FIXED_HPP
+#ifndef CLAPTRAP_HPP
+# define CLAPTRAP_HPP
 
 #include <iostream>
-#include <math.h>
 
-class Fixed
+class ClapTrap 
 {
-	private:
-		int _n;
-		static const int _bits = 8;
+	protected:
+		std::string		_name;
+		unsigned int	_hp;
+		unsigned int	_mp;
+		unsigned int	_ad;
 	public:
-		Fixed();
-		Fixed(const int i);
-		Fixed(const float f);
-		Fixed(const Fixed&copy);
-		Fixed &operator= (const Fixed &copy);
-		~Fixed();
-		int getRawBits()const;
-		void setRawBits(int const n);
-		float toFloat()const;
-		int toInt()const;
+		ClapTrap();
+		ClapTrap(const std::string name);
+		ClapTrap(const ClapTrap&copy);
+		~ClapTrap();
+		ClapTrap &operator= (const ClapTrap &copy);
+		
+		void attack(const std::string& target);
+		void takeDamage(unsigned int amount);
+		void beRepaired(unsigned int amount);
 };
-
-std::ostream &operator<<(std::ostream &out, const Fixed &c);
 
 #endif

@@ -1,32 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Fixed.hpp                                          :+:      :+:    :+:   */
+/*   FragTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jomaia <jomaia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/05/27 12:09:31 by jomaia            #+#    #+#             */
-/*   Updated: 2026/06/22 14:08:50 by jomaia           ###   ########.fr       */
+/*   Created: 2026/06/22 15:24:28 by jomaia            #+#    #+#             */
+/*   Updated: 2026/06/22 15:29:51 by jomaia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FIXED_HPP
-# define FIXED_HPP
+#ifndef FRAGTRAP_HPP
+# define FRAGTRAP_HPP
 
-#include <iostream>
+# include "ClapTrap.hpp"
 
-class Fixed
+class FragTrap : public ClapTrap
 {
-	private:
-		int _n;
-		static const int _bits = 8;
 	public:
-		Fixed();
-		Fixed(const Fixed&copy);
-		Fixed &operator= (const Fixed &copy);
-		~Fixed();
-		int getRawBits()const;
-		void setRawBits(int const raw);
+		FragTrap();
+		FragTrap(std::string name);
+		FragTrap(const FragTrap &other);
+		FragTrap &operator=(const FragTrap &other);
+		~FragTrap();
+
+		void attack (const std::string name);
+		void highFivesGuys(void);
 };
+
 
 #endif

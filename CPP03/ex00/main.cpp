@@ -1,32 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Fixed.hpp                                          :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jomaia <jomaia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/05/27 12:09:31 by jomaia            #+#    #+#             */
-/*   Updated: 2026/06/22 14:08:50 by jomaia           ###   ########.fr       */
+/*   Created: 2026/06/18 16:26:14 by jomaia            #+#    #+#             */
+/*   Updated: 2026/06/18 16:31:11 by jomaia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FIXED_HPP
-# define FIXED_HPP
+#include "ClapTrap.hpp"
 
-#include <iostream>
-
-class Fixed
+int main(void)
 {
-	private:
-		int _n;
-		static const int _bits = 8;
-	public:
-		Fixed();
-		Fixed(const Fixed&copy);
-		Fixed &operator= (const Fixed &copy);
-		~Fixed();
-		int getRawBits()const;
-		void setRawBits(int const raw);
-};
-
-#endif
+	ClapTrap original("Arthur");
+	ClapTrap clone = original;
+	original.beRepaired(10);
+	original.attack("your shins");
+	std::cout << "Your shins fight back!" << std::endl;
+	original.takeDamage(5);
+	original.beRepaired(2);
+	original.takeDamage(7);
+	original.attack("your shins");
+	original.beRepaired(10);
+}

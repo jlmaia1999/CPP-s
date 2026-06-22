@@ -6,9 +6,12 @@
 /*   By: jomaia <jomaia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/19 13:06:08 by jomaia            #+#    #+#             */
-/*   Updated: 2026/05/19 13:11:12 by jomaia           ###   ########.fr       */
+/*   Updated: 2026/06/22 14:08:09 by jomaia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#ifndef HARL_HPP
+# define HARL_HPP
 
 # include <string>
 # include <cstdlib>
@@ -27,3 +30,5 @@ class Harl
 		~Harl();
 		void complain(std::string level);
 };
+
+#endif
