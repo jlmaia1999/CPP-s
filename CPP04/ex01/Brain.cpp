@@ -6,7 +6,7 @@
 /*   By: jomaia <jomaia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/10 11:35:20 by jomaia            #+#    #+#             */
-/*   Updated: 2026/07/13 15:07:38 by jomaia           ###   ########.fr       */
+/*   Updated: 2026/07/15 17:04:29 by jomaia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ Brain::Brain(const Brain& other) : _i(other._i)
 
 Brain::~Brain()
 {
-	std::cout << "Brain died";
+	std::cout << "Brain died\n";
 }
 
 Brain &Brain::operator=(const Brain& other)

@@ -6,7 +6,7 @@
 /*   By: jomaia <jomaia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/26 15:31:04 by jomaia            #+#    #+#             */
-/*   Updated: 2026/07/13 15:07:56 by jomaia           ###   ########.fr       */
+/*   Updated: 2026/07/15 17:17:37 by jomaia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@ Cat::Cat() : Animal("Cat"), _brain(new Brain)
 Cat::Cat(const Cat &other) : Animal(other.type), _brain(new Brain(*other._brain))
 {
 	std::cout << "Cat copy constructor called << std::endl";
-	*this = other;
 }
 
 Cat &Cat::operator=(const Cat &other)
