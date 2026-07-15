@@ -6,18 +6,18 @@
 /*   By: jomaia <jomaia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/26 15:18:36 by jomaia            #+#    #+#             */
-/*   Updated: 2026/06/29 14:19:10 by jomaia           ###   ########.fr       */
+/*   Updated: 2026/07/13 15:07:17 by jomaia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Dog.hpp"
 
-Dog::Dog() : Animal("Dog")
+Dog::Dog() : Animal("Dog"), _brain(new Brain())
 {
 	std::cout << "Dog default constructor called" << std::endl;
 }
 
-Dog::Dog(const Dog &other) : Animal(other.type)
+Dog::Dog(const Dog &other) : Animal(other.type), _brain(new Brain(*other._brain))
 {
 	std::cout << "Dog copy constructor called << std::endl";
 	*this = other;
@@ -26,7 +26,11 @@ Dog::Dog(const Dog &other) : Animal(other.type)
 Dog &Dog::operator=(const Dog &other)
 {
 	if (this!= &other)
-		this->type = other.type;
+	{
+		Animal::operator=(other);
+		delete _brain;
+		_brain = other._brain;
+	}
 	return *this;
 }
 
@@ -38,4 +42,20 @@ Dog::~Dog()
 void Dog::makeSound() const
 {
 	std::cout << "Bark" << std::endl;
+}
+
+void Dog::Add_Idea(std::string idea)
+{
+	if (_brain != NULL)
+		_brain->AddIdea(idea);
+	else
+		std::cout << " Error 404, Dog brain not found\n";
+}
+
+void Dog::Print_idea(void) const
+{
+	if (_brain != NULL)
+		_brain->Print_idea();
+	else
+		std::cout << "Error 404, Dog brain not found\n";
 }

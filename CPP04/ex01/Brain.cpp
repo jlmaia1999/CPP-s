@@ -6,7 +6,7 @@
 /*   By: jomaia <jomaia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/10 11:35:20 by jomaia            #+#    #+#             */
-/*   Updated: 2026/07/10 11:49:36 by jomaia           ###   ########.fr       */
+/*   Updated: 2026/07/13 15:07:38 by jomaia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ void Brain::AddIdea(std::string idea)
 	_i++;
 }
 
-void Brain::PrintIdea(void)
+void Brain::Print_idea(void) const
 {
 	for (int i = 0; i < _i; i++)
 	{

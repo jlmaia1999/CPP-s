@@ -6,7 +6,7 @@
 /*   By: jomaia <jomaia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/18 16:26:14 by jomaia            #+#    #+#             */
-/*   Updated: 2026/06/18 16:31:11 by jomaia           ###   ########.fr       */
+/*   Updated: 2026/07/15 16:02:44 by jomaia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,13 @@
 
 int main(void)
 {
-	ClapTrap original("Arthur");
+	ClapTrap original("Gervasio");
 	ClapTrap clone = original;
 	original.beRepaired(10);
-	original.attack("your shins");
-	std::cout << "Your shins fight back!" << std::endl;
+	original.attack("Alcino");
 	original.takeDamage(5);
 	original.beRepaired(2);
 	original.takeDamage(7);
-	original.attack("your shins");
+	original.attack("Alcino");
 	original.beRepaired(10);
 }

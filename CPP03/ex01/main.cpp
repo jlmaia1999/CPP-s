@@ -6,7 +6,7 @@
 /*   By: jomaia <jomaia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/18 16:26:14 by jomaia            #+#    #+#             */
-/*   Updated: 2026/06/22 14:49:18 by jomaia           ###   ########.fr       */
+/*   Updated: 2026/07/15 16:14:40 by jomaia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,24 +15,23 @@
 
 int main(void)
 {
-	ClapTrap original("Claptrap P. Claptrappington");
+	std::cout << "-------ClapTrap-------" << std::endl;
+	ClapTrap original("Gervasio");
 	ClapTrap clone = original;
 	original.beRepaired(10);
-	original.attack("your shins");
-	std::cout << "Your shins fight back!" << std::endl;
+	original.attack("Alcino");
 	original.takeDamage(5);
 	original.beRepaired(2);
 	original.takeDamage(7);
-	original.attack("your shins");
+	original.attack("Alcino");
 	original.beRepaired(10);
-	std::cout << "------------------------------------ScavTrap------------------------------------" << std::endl;
-	ScavTrap gateguard("SC4V-TP");
+	std::cout << "-------ScavTrap-------" << std::endl;
+	ScavTrap gateguard("Asdrubal");
 	gateguard.beRepaired(10);
 	gateguard.guardGate();
-	gateguard.attack("raider");
-	std::cout << "The raider fights back!" << std::endl;
+	gateguard.attack("Alcino");
 	gateguard.takeDamage(90);
-	gateguard.attack("raider");
+	gateguard.attack("Alcino");
 	for (int i = 0; i < 50; i++)
 	{
 		gateguard.beRepaired(1);

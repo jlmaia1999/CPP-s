@@ -6,7 +6,7 @@
 /*   By: jomaia <jomaia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/01 23:03:16 by jomaia            #+#    #+#             */
-/*   Updated: 2026/07/10 11:34:28 by jomaia           ###   ########.fr       */
+/*   Updated: 2026/07/13 15:07:34 by jomaia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ class Brain
 		Brain& operator=(const Brain& other);
 		~Brain();
 		void AddIdea(std::string idea);
-		void PrintIdea();
+		void Print_idea(void) const;
 };
 
 #endif

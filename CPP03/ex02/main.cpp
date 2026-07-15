@@ -6,7 +6,7 @@
 /*   By: jomaia <jomaia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/18 16:26:14 by jomaia            #+#    #+#             */
-/*   Updated: 2026/06/22 15:32:35 by jomaia           ###   ########.fr       */
+/*   Updated: 2026/07/15 16:20:31 by jomaia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,39 +16,34 @@
 
 int main(void)
 {
-	{
-	std::cout << "------------------------------------ClapTrap------------------------------------" << std::endl;
-	ClapTrap original("Claptrap P. Claptrappington");
+
+	std::cout << "-------ClapTrap-------" << std::endl;
+	ClapTrap original("Gervasio");
 	ClapTrap clone = original;
 	original.beRepaired(10);
-	original.attack("your shins");
-	std::cout << "Your shins fight back!" << std::endl;
+	original.attack("Alcino");
 	original.takeDamage(5);
 	original.beRepaired(2);
 	original.takeDamage(7);
-	original.attack("your shins");
+	original.attack("Alcino");
 	original.beRepaired(10);
-	}
-	{
-	std::cout << "------------------------------------ScavTrap------------------------------------" << std::endl;
-	ScavTrap gateguard("SC4V-TP");
+	std::cout << "-------ScavTrap-------" << std::endl;
+	ScavTrap gateguard("Asdrubal");
 	gateguard.beRepaired(10);
 	gateguard.guardGate();
-	gateguard.attack("raider");
-	std::cout << "The raider fights back!" << std::endl;
+	gateguard.attack("Alcino");
 	gateguard.takeDamage(90);
-	gateguard.attack("raider");
-	gateguard.beRepaired(1);
-	}
+	gateguard.attack("Alcino");
+	for (int i = 0; i < 50; i++)
 	{
-	std::cout << "------------------------------------FragTrap------------------------------------" << std::endl;
-	FragTrap boomtrap("R4MB0-TP");
+		gateguard.beRepaired(1);
+	}
+	gateguard.beRepaired(1);
+	std::cout << "-------FragTrap-------" << std::endl;
+	FragTrap boomtrap("Donaciano");
 	boomtrap.beRepaired(10);
 	boomtrap.highFivesGuys();
-	boomtrap.attack("innocent bystander");
-	std::cout << "The innocent bystander deflects the explosive back!" << std::endl;
+	boomtrap.attack("Alcino");
 	boomtrap.takeDamage(100);
 	boomtrap.highFivesGuys();
-	}
-	
 }

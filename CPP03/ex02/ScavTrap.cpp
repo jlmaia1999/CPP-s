@@ -6,7 +6,7 @@
 /*   By: jomaia <jomaia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/22 13:44:25 by jomaia            #+#    #+#             */
-/*   Updated: 2026/06/22 15:03:51 by jomaia           ###   ########.fr       */
+/*   Updated: 2026/07/15 16:21:46 by jomaia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ ScavTrap &ScavTrap::operator=(const ScavTrap &other)
 
 ScavTrap::~ScavTrap()
 {
-	std::cout << _name <<" Destructor called \n";
+	std::cout << _name << " Destructor called \n";
 }
 
 void ScavTrap::guardGate()
