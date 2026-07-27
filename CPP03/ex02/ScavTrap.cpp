@@ -14,7 +14,7 @@
 
 ScavTrap::ScavTrap()
 {
-	std::cout << "Default constructor called \n";
+	std::cout << "ScavTrap Default constructor called \n";
 	_name = "Unnamed Scavtrap";
 	_hp = 10;
 	_mp = 10;
@@ -24,7 +24,7 @@ ScavTrap::ScavTrap()
 
 ScavTrap::ScavTrap(const std::string name)
 {
-	std::cout << "Constructor called \n";
+	std::cout << "ScavTrap Constructor called \n";
 	_name = name;
 	_hp = 10;
 	_mp = 10;
@@ -34,13 +34,13 @@ ScavTrap::ScavTrap(const std::string name)
 
 ScavTrap::ScavTrap(const ScavTrap &other)
 {
-	std::cout << "Copy constructor called\n";
+	std::cout << "ScavTrap Copy constructor called\n";
 	*this = other;
 }
 
 ScavTrap &ScavTrap::operator=(const ScavTrap &other)
 {
-	std::cout << "Copy assigment operator called\n";
+	std::cout << "ScavTrap Copy assigment operator called\n";
 	if (this != &other)
 	{
 		this->_name = other._name;
@@ -54,7 +54,7 @@ ScavTrap &ScavTrap::operator=(const ScavTrap &other)
 
 ScavTrap::~ScavTrap()
 {
-	std::cout << _name << " Destructor called \n";
+	std::cout << _name << "ScavTrap Destructor called \n";
 }
 
 void ScavTrap::guardGate()

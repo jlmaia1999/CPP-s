@@ -14,7 +14,7 @@
 
 FragTrap::FragTrap()
 {
-	std::cout << "Default constructor called \n";
+	std::cout << "FragTrap Default constructor called \n";
 	_name = "Unnamed Fragtrap";
 	_hp = 100;
 	_mp = 100;
@@ -24,7 +24,7 @@ FragTrap::FragTrap()
 
 FragTrap::FragTrap(const std::string name)
 {
-	std::cout << "Constructor called \n";
+	std::cout << "FragTrap Constructor called \n";
 	_name = name;
 	_hp = 100;
 	_mp = 100;
@@ -34,13 +34,13 @@ FragTrap::FragTrap(const std::string name)
 
 FragTrap::FragTrap(const FragTrap &other)
 {
-	std::cout << "Copy constructor called\n";
+	std::cout << "FragTrap Copy constructor called\n";
 	*this = other;
 }
 
 FragTrap &FragTrap::operator=(const FragTrap &other)
 {
-	std::cout << "Copy assigment operator called\n";
+	std::cout << "FragTrap Copy assigment operator called\n";
 	if (this != &other)
 	{
 		this->_name = other._name;
@@ -53,7 +53,7 @@ FragTrap &FragTrap::operator=(const FragTrap &other)
 
 FragTrap::~FragTrap()
 {
-	std::cout << _name <<" Destructor called \n";
+	std::cout << _name <<"FragTrap Destructor called \n";
 }
 
 void FragTrap::highFivesGuys(void)
