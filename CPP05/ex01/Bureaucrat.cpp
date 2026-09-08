@@ -97,7 +97,7 @@ void Bureaucrat::signForm(Form &f)
 	}
 	catch(const Form::GradeTooLow& e)
 	{
-		std::cout << this->_name << " couldn't sign " << f.get_name() << " because " << e.what() << std::endl;
+		std::cout << this->_name << " couldn't sign " << f.get_name() << " because her grade isn't high enough" << std::endl;
 	}
 	
 }
