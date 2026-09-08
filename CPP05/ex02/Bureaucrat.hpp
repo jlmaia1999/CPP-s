@@ -3,9 +3,9 @@
 #include <iostream>
 #include <string>
 #include <exception>
-#include "Form.hpp"
+#include "AForm.hpp"
 
-class Form;
+class AForm;
 
 class Bureaucrat{
     private:
@@ -23,7 +23,8 @@ class Bureaucrat{
         void increase_grade();
         void decrease_grade();
 
-		void	signForm(Form &f);
+		void	signForm(AForm &f);
+		void	executeForm(AForm const &form) const;
 
         class GradeTooHighException: public std::exception
         {

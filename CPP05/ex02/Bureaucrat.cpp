@@ -88,6 +88,35 @@ void Bureaucrat::decrease_grade()
     }
 }
 
+void Bureaucrat::signForm(AForm &f)
+{
+	try
+	{
+		f.beSigned(*this);
+		std::cout << this->_name << " signed " << f.get_name() << std::endl;
+	}
+	catch(const AForm::GradeTooLowException& e)
+	{
+		std::cout << this->_name << " couldn't sign " << f.get_name() << " because her grade isn't high enough" << std::endl;
+	}
+	
+}
+
+void Bureaucrat::executeForm(AForm const &form) const
+{
+	try
+	{
+		form.execute(*this);
+		std::cout << _name << " executed " << form.get_name() << std::endl;
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
+	}
+	
+}
+
+
 std::ostream &operator<<(std::ostream &out, const Bureaucrat &obj)
 {
     out << obj.get_name() << ", bureaucrat grade " << obj.get_grade();

@@ -1,20 +1,20 @@
 #include "Form.hpp"
 
-const char* Form::GradeTooHigh::what() const throw()
+const char* Form::GradeTooHighException::what() const throw()
 {
 	return ("Form grade too high");
 }
 
-const char* Form::GradeTooLow::what() const throw()
+const char* Form::GradeTooLowException::what() const throw()
 {
 	return ("Form grade too low");
 }
 
 Form::Form(std::string name,  int sgrade, int egrade):_name(name), _is_signed(0), _sgrade(sgrade), _egrade(egrade){
 	if (_sgrade < 1 || _egrade < 1)
-		throw GradeTooHigh();
+		throw GradeTooHighException();
 	if (_sgrade > 150 || _egrade > 150)
-		throw GradeTooLow();
+		throw GradeTooLowException();
 }
 
 Form::Form(const Form &other):_name(other._name), _is_signed(other._is_signed), _sgrade(other._sgrade), _egrade(other._egrade){}
@@ -53,7 +53,7 @@ int Form::get_sgrade() const
 void Form::beSigned(Bureaucrat &b)
 {
 	if(b.get_grade() > this->_sgrade)
-		throw GradeTooLow();
+		throw GradeTooLowException();
 	else
 		_is_signed = 1;
 }

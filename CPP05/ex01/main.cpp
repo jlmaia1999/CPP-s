@@ -24,7 +24,7 @@ int main()
 		// Test invalid form construction
 		try {
 			Form badForm("Bad", 0, 10);
-		} catch (const Form::GradeTooHigh &e) {
+		} catch (const Form::GradeTooHighException &e) {
 			std::cout << "Caught form construction error: " << e.what() << std::endl;
 		}
 
