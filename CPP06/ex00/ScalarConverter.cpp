@@ -101,7 +101,7 @@ void ScalarConverter::convert(std::string literal)
 		{
 			c = static_cast<char>(i);
 			if (std::isprint(c))
-				std::cout << "2char: '" << c << "'" << std::endl;
+				std::cout << "char: '" << c << "'" << std::endl;
 			else
 				std::cout << "char: Non displayable" << std::endl;
 		}
@@ -155,7 +155,7 @@ void ScalarConverter::convert(std::string literal)
 		std::cout << "double: " << d << std::endl;
 		return ;
 	}
-	std::cout << "5char: impossible" << std::endl;
+	std::cout << "char: impossible" << std::endl;
 	std::cout << "int: impossible" << std::endl;
 	std::cout << "float: impossible" << std::endl;
 	std::cout << "double: impossible" << std::endl;
