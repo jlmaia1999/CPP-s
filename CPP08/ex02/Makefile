@@ -2,7 +2,7 @@ NAME = easyfind
 CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 
-SRCS = main.cpp Span.cpp
+SRCS = main.cpp 
 
 all: $(NAME)
 
