@@ -7,6 +7,13 @@ int main(int argc, char **argv)
 		std::cout << "Error: could not open file." << std::endl;
 		return 1;
 	}
-	BitcoinExchange btc;
-	
+	try
+	{
+		BitcoinExchange b;
+		b.readDB(argv[1]);
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
+	}
 }

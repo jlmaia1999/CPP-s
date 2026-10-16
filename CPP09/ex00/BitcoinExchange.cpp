@@ -1,6 +1,9 @@
 #include "BitcoinExchange.hpp"
 
-BitcoinExchange::BitcoinExchange(){}
+BitcoinExchange::BitcoinExchange()
+{
+	createMap();
+}
 
 BitcoinExchange::BitcoinExchange(const BitcoinExchange &other)
 {
@@ -18,57 +21,125 @@ BitcoinExchange &BitcoinExchange::operator=(const BitcoinExchange &other)
 
 BitcoinExchange::~BitcoinExchange(){}
 
-bool BitcoinExchange::isOpen(char *filename)
+const char *BitcoinExchange::OFException::what() const throw()
+{
+	return "Could not open file";
+}
+
+const char *BitcoinExchange::RFException::what() const throw()
+{
+	return "Could not read file";
+}
+
+const char *BitcoinExchange::IDException::what() const throw()
+{
+	return "Invalid date format";
+}
+
+const char *BitcoinExchange::IHException::what() const throw()
+{
+	return "Invalid header format";
+}
+
+const char *BitcoinExchange::DBErrorException::what() const throw()
+{
+	return "Database error";
+}
+
+void BitcoinExchange::isOpen(char *filename)
 {
 	file.open(filename, std::ios::in);
 	if (!file)
-	{
-		std::cout << "Error: could not open file." << std::endl;
-		return 0;
-	}
-	return 1;
+		throw OFException();
 }
 
-static std::string infoTrim(std::string const& s)
+void BitcoinExchange::readDB(std::string fileName)
 {
-	std::string::size_type start = s.find_first_not_of(" \t\n");
-	std::string::size_type end = s.find_last_not_of(" \t\n");
-
-	if (start == std::string::npos)
-		return ("");
-	return (s.substr(start, end - start + 1));
-}
-
-static bool validateDate(std::string &date)
-{
-	std::istringstream stream(date);
-	int	year, month, day;
-	char	sep1, sep2;
-
-	if (date.size() != 10)
-		return false;
-	if ()
-}
-
-bool BitcoinExchange::createMap()
-{
+	std::ifstream file(fileName.c_str());
+	std::string::size_type seperator;
+	float		value;
+	if (!file)
+		throw OFException();
 	std::string buffer;
-	std::string date;
-	std::string e_rate_str;
+	std::getline(file, buffer);
+	if (buffer != "date | value")
+		throw IHException();
+	while (std::getline(file, buffer))
+	{
+		seperator = buffer.find(" | ");
+		if (seperator == std::string::npos)
+		{
+			std::cout << "bad input => " << buffer << std::endl;
+			continue ;
+		}
+		tm t;
+		memset(&t, 0, sizeof(tm));
+		std::string date = buffer.substr(0, seperator);
+		if (!strptime(date.c_str(), "%Y-%m-%d", &t))
+		{
+			std::cout << "bad input => " << date << std::endl;
+			continue;
+		}
+		std::istringstream value_str(buffer.substr(seperator + 3));
+		value_str >> value;
+		if (value_str.fail() || !value_str.eof())
+		{
+			std::cout << "bad input => " << value_str.str() << std::endl;
+			continue;
+		}
+		if (value < 0.0f)
+		{
+			std::cout << "not a positive number" << std::endl;
+			continue;
+		}
+		if (value > 1000.0f)
+		{
+			std::cout << "number too large" << std::endl;
+			continue;
+		}
+		time_t tm = mktime(&t);
+		std::map<time_t, float>::iterator it = data.lower_bound(tm);
+		if (it != data.end() && it->first == tm)
+			std::cout << date << " => " << value << " = " << it->second * value << std::endl;
+		else if (it != data.begin())
+		{
+			it--;
+			std::cout << date << " => " << value << " = " << it->second * value << std::endl;
+		}
+		else
+			std::cout << "No corresponding date (too early)" << std::endl;
+	}
+}
+
+void BitcoinExchange::createMap()
+{
+	std::ifstream file("data.csv");
+	if (!file)
+		throw OFException();
+	std::string buffer;
 	std::string::size_type separator;
+	tm t;
+	memset(&t, 0, sizeof(tm));
 	float		e_rate;
-	if (!isOpen("data.csv"))
-		return 0;
 	std::getline(file, buffer);
 	if (buffer != "date,exchange_rate")
-		return (file.close(), 0);
+		throw IHException();
 	while (std::getline(file, buffer))
 	{
 		separator = buffer.find(",");
 		if (separator == std::string::npos)
-			return(file.close(), 0);
-		date = infoTrim(buffer.substr(0, separator));
-		e_rate_str = infoTrim (buffer.substr(separator + 1));
-
+			throw RFException();
+		if (!strptime(buffer.substr(0, separator).c_str(), "%Y-%m-%d", &t))
+			throw IDException();
+		std::istringstream e_rate_str(buffer.substr(separator + 1));
+		e_rate_str >> e_rate;
+		if (e_rate_str.fail() || !e_rate_str.eof())
+			throw RFException();
+		std::size_t size = data.size();
+		data.insert(std::make_pair(mktime(&t), e_rate));
+		if (size == data.size())
+			throw DBErrorException();
 	}
+	if (!file.eof())
+		throw DBErrorException();
 }
