@@ -1,8 +1,13 @@
 #include "RPN.hpp"
 
+std::stack<float> RPN::_stack;
+
 RPN::RPN(){}
 
-RPN::RPN(const RPN &other){};
+RPN::RPN(const RPN &other)
+{
+	*this = other;
+};
 
 RPN &RPN::operator=(const RPN &other)
 {
@@ -10,6 +15,7 @@ RPN &RPN::operator=(const RPN &other)
 	{
 		_stack = other._stack;
 	}
+	return *this;
 }
 
 RPN::~RPN(){};
@@ -96,7 +102,7 @@ float RPN::stackManager(std::string str)
 	float result = 0;
 
 
-	for (int i = 0; i++; i < str.size())
+	for (unsigned int i = 0; i < str.size(); i++)
 	{
 		if (i % 2 == 1)
 		{
@@ -129,4 +135,5 @@ float RPN::stackManager(std::string str)
 		else 
 			throw ExpectedOperation();
 	}
+	return result;
 }
