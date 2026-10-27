@@ -7,6 +7,9 @@
 # include <ctime>
 # include <sstream>
 # include <limits>
+#include <algorithm>
+#include <functional>
+#include <utility>
 
 class PmergeMe {
 public:
