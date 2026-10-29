@@ -123,8 +123,7 @@ void PmergeMe::sortVector() {
     std::size_t previousJacobsthal = 1;
     std::size_t currentJacobsthal = 3;
     while (previousJacobsthal < largestPendingIndex) {
-        const std::size_t end = currentJacobsthal < largestPendingIndex
-            ? currentJacobsthal : largestPendingIndex;
+        const std::size_t end = currentJacobsthal < largestPendingIndex ? currentJacobsthal : largestPendingIndex;
         for (std::size_t pendingIndex = end;
              pendingIndex > previousJacobsthal; --pendingIndex) {
             if (pendingIndex <= sortedPairs.size()) {

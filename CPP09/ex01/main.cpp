@@ -4,7 +4,7 @@ int main(int argc, char **argv)
 {
 	if (argc != 2)
 	{
-		std::cout << "Invalid number of arguments" << std::endl;
+		std::cerr << "Invalid number of arguments" << std::endl;
 		return 1;
 	}
 	float result = 0;
